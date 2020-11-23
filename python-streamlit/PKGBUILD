@@ -1,0 +1,44 @@
+# Forked from: Mohammad Hossein Sekhavat <sekhavat17@gmail.com>
+# By BTA
+
+pkgbase='python-streamlit'
+pkgname=('python-streamlit')
+_module='streamlit'
+pkgver='0.71.0'
+pkgrel=1
+pkgdesc="Streamlit: Frontend library for machine learning engineers"
+url="https://streamlit.io"
+depends=(
+	'python'
+	'python-altair>=3.2.0'
+	'python-astor'
+	'python-base58'
+	'python-blinker'
+	'python-boto3'
+	'python-botocore>=1.13.44'
+	'python-cachetools>=4.0'
+	'python-click>=7.0'
+	'python-enum-compat'
+	'python-numpy'
+	'python-packaging'
+	'python-pandas>=0.21.0'
+	'python-pillow>=6.2.0'
+	'python-protobuf>=3.11.2'
+	'python-pydeck>=0.1.dev5'
+	'python-requests'
+	'python-toml'
+	'python-tornado5'
+	'python-tzlocal'
+	'python-validators'
+	'python-watchdog'
+)
+makedepends=('python-pip')
+license=('Apache')
+arch=('any')
+source=("https://files.pythonhosted.org/packages/py2.py3/${_module::1}/$_module/${_module/-/_}-$pkgver-py2.py3-none-any.whl")
+sha256sums=('6a6518d6386e12c663d03f3ce01d8d467bf840e701f58f2678a99494f0949960')
+
+package() {
+    cd "${srcdir}"
+    PIP_CONFIG_FILE=/dev/null pip install --isolated --root="$pkgdir" --ignore-installed --no-deps ${_module}-${pkgver}-py2.py3-none-any.whl
+}
