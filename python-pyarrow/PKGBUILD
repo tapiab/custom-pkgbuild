@@ -1,0 +1,24 @@
+# Forked from: Mohammad Hossein Sekhavat <sekhavat17@gmail.com>
+# By BTA
+
+pkgbase='python-pyarrow'
+pkgname=('python-pyarrow')
+_module='pyarrow'
+pkgver='2.0.0'
+pkgrel=1
+pkgdesc="Python Library for Apache Arrow"
+url="https://arrow.apache.org/docs/python/"
+depends=(
+	'python'
+)
+makedepends=('python-pip')
+license=('Apache')
+arch=('any')
+#source=("https://files.pythonhosted.org/packages/py3/${_module::1}/$_module/${_module/-/_}-$pkgver-cp38-cp38-manylinux2014_x86_64.whl")
+source=("https://files.pythonhosted.org/packages/7c/93/23e304a4238d3e776e0ab43dfd4a78f602c8f51ef0c1adca97477f63161e/pyarrow-2.0.0-cp38-cp38-manylinux2014_x86_64.whl")
+sha256sums=('dd661b6598ce566c6f41d31cc1fc4482308613c2c0c808bd8db33b0643192f84')
+
+package() {
+    cd "${srcdir}"
+    PIP_CONFIG_FILE=/dev/null pip install --isolated --root="$pkgdir" --ignore-installed --no-deps pyarrow-2.0.0-cp38-cp38-manylinux2014_x86_64.whl
+}

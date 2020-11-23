@@ -31,6 +31,8 @@ depends=(
 	'python-tzlocal'
 	'python-validators'
 	'python-watchdog'
+	'python-gitpyhton'
+	'python-pyarray'
 )
 makedepends=('python-pip')
 license=('Apache')
