@@ -4,7 +4,7 @@
 pkgbase='python-streamlit'
 pkgname=('python-streamlit')
 _module='streamlit'
-pkgver='0.71.0'
+pkgver='0.76.0'
 pkgrel=1
 pkgdesc="Streamlit: Frontend library for machine learning engineers"
 url="https://streamlit.io"
@@ -27,18 +27,18 @@ depends=(
 	'python-pydeck>=0.1.dev5'
 	'python-requests'
 	'python-toml'
-	'python-tornado5'
 	'python-tzlocal'
 	'python-validators'
 	'python-watchdog'
-	'python-gitpyhton'
-	'python-pyarray'
+	'python-gitpython'
+	'python-pyarrow'
+	'python-tornado'
 )
 makedepends=('python-pip')
 license=('Apache')
 arch=('any')
 source=("https://files.pythonhosted.org/packages/py2.py3/${_module::1}/$_module/${_module/-/_}-$pkgver-py2.py3-none-any.whl")
-sha256sums=('6a6518d6386e12c663d03f3ce01d8d467bf840e701f58f2678a99494f0949960')
+sha256sums=('0c358fbfc4973b4008df4a77193323154d27673024c8ef4601b778785be6e86f')
 
 package() {
     cd "${srcdir}"
